@@ -1,0 +1,2 @@
+namespace :allthumbs do
+end
