@@ -21,7 +21,7 @@ end
 desc 'Start an IRB session with all necessary files required.'
 task :shell do |t|
   chdir File.dirname(__FILE__)
-  exec 'irb -I lib/ -I lib/allthumbs -r rubygems -r active_record -r tempfile -r init'
+  exec 'irb -I lib/ -I lib/allthumbs -r rubygems -r tempfile -r init'
 end
 
 desc 'Clean up files.'
