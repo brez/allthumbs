@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    cocaine (0.1.0)
     columnize (0.3.2)
     linecache (0.43)
     rake (0.8.7)
@@ -15,6 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cocaine
   rake
   ruby-debug
   shoulda

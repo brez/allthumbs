@@ -1,4 +1,13 @@
 source "http://rubygems.org"
-gem "shoulda"
+
 gem "rake"
-gem "ruby-debug"
+gem "cocaine"
+
+group :test do
+  gem "shoulda"
+  gem "ruby-debug"
+end
+
+group :development do
+  gem "ruby-debug"
+end
