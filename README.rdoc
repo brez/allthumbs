@@ -1,3 +1,14 @@
 =Allthumbs
 
+Gots tons of thumbnails clogging up your requests?  Why merge them all into a single image / single request?
+
+=Usage
+
+
+
+=Thanks
+
+Thoughtbot (heavily influenced by paperclip)
+Rick Webb (championing the open source cause)
+
 
