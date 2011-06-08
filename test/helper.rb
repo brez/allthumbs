@@ -18,4 +18,4 @@ require File.join(ROOT, 'lib', 'allthumbs.rb')
 FIXTURES_DIR = File.join(File.dirname(__FILE__), "fixtures")
 
 IMAGES = Dir::glob('test/images/*jpg').map { |f| f }.join(' ')
-
+TESTMONTAGE = 'test/tmp-montage.jpg'

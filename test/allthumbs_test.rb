@@ -7,21 +7,24 @@ class AllthumbsTest < Test::Unit::TestCase
     end
   end
   should "generate a single 4 column (104x78) montage from 12 22px images with 2 pixel borders" do
-    montage = Allthumbs.generate(IMAGES, 'test/tmp-montage.jpg', { :column => 4, :border => 2 })
-    assert File.exists? montage
-    assert dimensions(montage) == [104, 78]
+    Allthumbs.generate(IMAGES, TESTMONTAGE, { :column => 4, :border => 2 })
+    assert File.exists? TESTMONTAGE
+    assert dimensions(TESTMONTAGE) == ["104", "78", nil]
   end
-  should "generate a single 3x4 (78x104) from 12 22px images" do
-    assert false
-  end
-  should "generate a single 4x3 (104x78) from 12 22px images with a 3 pixel border" do
-    assert false
-  end
-  should "generate a single 3x4 (78x104) from 12 22px images with " do
-    assert false
+  should "generate a single 3 column (90x120) montage from 12 22px images with 4 pixel borders" do
+    Allthumbs.generate(IMAGES, TESTMONTAGE, { :column => 3, :border => 4 })
+    assert File.exists? TESTMONTAGE
+    assert dimensions(TESTMONTAGE) == ["90", "120", nil]
   end
   should "raise an exception when bad image files are passed" do
-    assert false
+    assert_raise RuntimeError do
+      Allthumbs.generate('some/nonexistent/file.jpg', TESTMONTAGE, { :column => 3, :border => 4 })
+    end
+  end
+  should "raise an exception when bad column row values are passed" do
+    assert_raise RuntimeError do
+      Allthumbs.generate(IMAGES, TESTMONTAGE, { :column => 3, :row => 20, :border => 4 })
+    end
   end
 end
 

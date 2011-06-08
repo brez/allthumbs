@@ -14,9 +14,10 @@ module Allthumbs
     files.split.map { |file| raise "Attempting to generate with one or more invalid files" unless File.exists? file }
 
     begin
-      Cocaine::CommandLine.new(
+      command = Cocaine::CommandLine.new(
         "montage", "-geometry :geometry -tile :tile :files",
-        :geometry => "+#{border}+#{border}", :tile => "#{column}x#{row}", :files => (files += " #{out}")).run
+        :geometry => "+#{border}+#{border}", :tile => "#{column}x#{row}", :files => (files += " #{out}")).command
+      `#{command.gsub(/'/, '')}`
     rescue Cocaine::CommandNotFoundError => e
       raise "Could not run the 'montage' command. Please install ImageMagick."
     end
