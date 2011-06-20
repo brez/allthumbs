@@ -2,13 +2,31 @@
 
 Gots tons of thumbnails clogging up your requests?  Why merge them all into a single image / single request?
 
-=Usage
+=Dependencies
 
+Library is whole dependent on Image Magick for processing files, the gem will let you know if it can't find the necessary binaries
 
+=Usage Examples
+
+* After Save callback in Rails 3, using paperclip to regenerate an image based on changes
+
+   after_save :generate_thumbnail_image
+   def generate_thumbnail_image
+      Allthumbs.generate (all.map {|x| x.image.path }), "#{RAILS_ROOT}/public/images/thumbnail-image.jpg", { :row => 3, :border => 2 }
+   end
+
+=Tests
+
+Comes with a complete rspec suite:
+
+   $ rake test
+
+=Todo
+
+Develop some kind of helper to assist in generation of supporting HTML, e.g. you would like have rollovers or popups for each thumbnail
 
 =Thanks
 
-Thoughtbot (heavily influenced by paperclip)
-Rick Webb (championing the open source cause)
-
+* Thoughtbot (heavily influenced by paperclip)
+* Rick Webb (championing the open source cause)
 
