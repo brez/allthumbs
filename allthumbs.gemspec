@@ -10,6 +10,7 @@ end.flatten
 
 spec = Gem::Specification.new do |s|
   s.name              = "allthumbs"
+  s.summary           = "Generate single image from tons of thumbails"
   s.version           = Allthumbs::VERSION
   s.author            = "John Bresnik"
   s.email             = "jbresnik@barbariangroup.com"
